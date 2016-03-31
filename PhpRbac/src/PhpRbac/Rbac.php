@@ -13,10 +13,12 @@ use \Jf;
  */
 class Rbac
 {
-    public function __construct($unit_test = '')
+    public function __construct($unit_test = '', $config_dir=null)
     {
         if ((string) $unit_test === 'unit_test') {
             require_once dirname(dirname(__DIR__)) . '/tests/database/database.config';
+        } elseif(isset($config_dir)) {    
+            require_once $config_dir;
         } else {
             require_once dirname(dirname(__DIR__)) . '/database/database.config';
         }
